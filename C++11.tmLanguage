@@ -2,8 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>author</key>
+	<string>gingerBill</string>
 	<key>fileTypes</key>
 	<array>
+		<string>c</string>
 		<string>cpp</string>
 		<string>cc</string>
 		<string>cp</string>
@@ -27,12 +30,86 @@
 	</string>
 	<key>foldingStopMarker</key>
 	<string>(?&lt;!\*)\*\*/|^\s*\}</string>
-	<key>keyEquivalent</key>
-	<string>^~C</string>
 	<key>name</key>
 	<string>C++11</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>comment</key>
+			<string>UPPER_SNAKE_CASE type matching</string>
+			<key>match</key>
+			<string>\b[A-Z_](?![a-z])[A-Z_0-9]+\b</string>
+			<key>name</key>
+			<string>storage.constant.c++</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>PascalCase type matching</string>
+			<key>match</key>
+			<string>\b((?:[a-z]*_)?[A-Z]+\w*)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(boolean|b8|b32|bool8|bool32)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(s8|s16|s32|s64|u8|u16|u32|u64)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(uint)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(char8|char16|char32)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(f16|f32|f64|f80|f128|float16|float32|float64|float80|float128)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(r16|r32|r64|r80|r128|real16|real32|real64|real80|real128)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(usize|ssize|ptrdiff|uintptr|intptr)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(internal|global|local_persist|internal_linkage|global_variable|INTERNAL|GLOBAL|LOCAL_PERSIST)\b</string>
+			<key>name</key>
+			<string>storage.modifier.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(pseudo_cast|bit_cast)\b\s*</string>
+			<key>name</key>
+			<string>keyword.operator.cast.c++</string>
+		</dict>
 		<dict>
 			<key>include</key>
 			<string>#special_block</string>
@@ -86,7 +163,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(catch|operator|try|throw|using)\b</string>
+			<string>\b(catch|operator|try|throw|using|typedef)\b</string>
 			<key>name</key>
 			<string>keyword.control.c++</string>
 		</dict>
@@ -96,14 +173,12 @@
 			<key>name</key>
 			<string>keyword.control.c++</string>
 		</dict>
-
 		<dict>
 			<key>match</key>
-			<string>\b(constexpr)\b</string>
+			<string>\b(constexpr|noexcept)\b</string>
 			<key>name</key>
 			<string>storage.modifier.c++</string>
 		</dict>
-
 		<dict>
 			<key>match</key>
 			<string>\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|switch|while)\b</string>
@@ -112,34 +187,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(asm|__asm__|auto|bool||char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void|size_t|int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|char16_t|char32_t|uint|usize|bool32|s8|s16|s32|s64|u8|u16|u32|u64|int8|int16|int32|int64|uint8|uint16|uint32|uint64|char8|char16|char32)\b</string>
+			<string>\b(asm|__asm__|auto|bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|FILE|va_list|union|unsigned|void|size_t|int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|char16_t|char32_t|uint|ptrdiff_t|uintptr_t|intptr_t)\b</string>
 			<key>name</key>
 			<string>storage.type.c++</string>
 		</dict>
-
 		<dict>
-			<!-- #define ... static  - because static means many things -->
 			<key>match</key>
-			<string>\b(const|constexpr|extern|register|static|volatile|inline|INTERNAL|GLOBAL|LOCAL_PERSIST)\b</string>
+			<string>\b(const|constexpr|extern|register|static|volatile|inline|__forceinline)\b</string>
 			<key>name</key>
 			<string>storage.modifier.c++</string>
 		</dict>
-
-
 		<dict>
 			<key>match</key>
 			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
 			<key>name</key>
 			<string>constant.numeric.c++</string>
-		</dict>
-
-		<dict>
-			<key>comment</key>
-			<string>PascalCase type matching</string>
-			<key>match</key>
-			<string>\b[A-Z]\w+\b</string>
-			<key>name</key>
-			<string>storage.type.c++</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -183,19 +245,6 @@
 			<key>name</key>
 			<string>storage.modifier.c++</string>
 		</dict>
-
-
-
-		<dict>
-			<!-- Todo Highlighting -->
-			<key>match</key>
-			<string>\b(TODO|FIXME|NOTE|IMPORTANT|FIXME|HACK)\b</string>
-			<key>name</key>
-			<string>storage.modifier.c++</string>
-		</dict>
-
-
-
 		<dict>
 			<key>begin</key>
 			<string>(?x)
@@ -428,10 +477,6 @@
 				<dict>
 					<key>begin</key>
 					<string>\b(namespace)\s+([A-Za-z_][_A-Za-z0-9:]*\b)?+(?!\s*?(;|=|,))</string>
-					<key>end</key>
-					<string>(?&lt;=\})</string>
-					<key>name</key>
-					<string>meta.namespace-block.c++</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -440,6 +485,10 @@
 							<string>keyword.control.c++</string>
 						</dict>
 					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>meta.namespace-block.c++</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -466,10 +515,6 @@
 					</array>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(class|struct)\s+([_A-Za-z][_A-Za-z0-9]*\b);</string>
-					<key>name</key>
-					<string>meta.class-struct-block.c++</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -483,6 +528,10 @@
 							<string>entity.name.type.forward-decl.c++</string>
 						</dict>
 					</dict>
+					<key>match</key>
+					<string>\b(class|struct)\s+([_A-Za-z][_A-Za-z0-9]*\b);</string>
+					<key>name</key>
+					<string>meta.class-struct-block.c++</string>
 				</dict>
 				<dict>
 					<key>begin</key>
