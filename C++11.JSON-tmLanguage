@@ -24,6 +24,23 @@
 		"foldingStopMarker": "(?<!\\*)\\*\\*/|^\\s*\\}",
 
 	"patterns": [
+		{ "include": "#special_block" },
+		{ "include": "source.c" },
+		{
+			"begin": "R\"([a-zA-Z_]*)\\(",
+			"patterns": [
+				{ "include": "#string_placeholder" }
+			],
+			"end": "\\)\\1\"",
+			"name": "string.quoted.raw.c++",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.raw.c++" }
+			},
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.string.begin.raw.c++" }
+			}
+		},
+
 
 	/* BEGIN Custom Style */
 		/* Name Convention */
@@ -64,22 +81,7 @@
 		*/
 	/* END Custom Style */
 
-		{ "include": "#special_block" },
-		{ "include": "source.c" },
-		{
-			"begin": "R\"([a-zA-Z_]*)\\(",
-			"patterns": [
-				{ "include": "#string_placeholder" }
-			],
-			"end": "\\)\\1\"",
-			"name": "string.quoted.raw.c++",
-			"endCaptures": {
-				"0": { "name": "punctuation.definition.string.end.raw.c++" }
-			},
-			"beginCaptures": {
-				"0": { "name": "punctuation.definition.string.begin.raw.c++" }
-			}
-		},
+
 		{
 			"match": "\\b(friend|explicit|virtual)\\b",
 			"name": "storage.modifier.c++"
@@ -121,7 +123,7 @@
 			"name": "variable.language.c++"
 		},
 		{
-			"match": "\\bnullptr\\b",
+			"match": "\\b(nullptr)\\b",
 			"name": "constant.language.c++"
 		},
 		{
@@ -333,5 +335,5 @@
 			"name": "meta.angle-brackets.c++"
 		}
 	},
-	"uuid": "26251B18-6B1D-11D9-AFDB-000D93589AF6"
+	"uuid": "f1add24e-2523-45f9-93e7-fa1cdee41704"
 }
