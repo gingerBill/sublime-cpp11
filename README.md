@@ -8,7 +8,7 @@ It is primarily focused on improving the default C/C++ syntax highlighting shipp
 
 This color scheme has the ability to allow for custom styling conventions. The default styling convention is this:
 
-*`Types_Are_Like_This` or `TypesAreLikeThis`
+* `Types_Are_Like_This` or `TypesAreLikeThis`
 * `CONSTANTS_ARE_LIKE_THIS`
 
 It also includes a selection of custom types that are used numerous in projects (i.e. `uint`, `u32`, `s64`, `float32`, `usize`, etc.) and custom keywords (i.e. `bit_cast`, `internal`, `global`, `local_persist`).
