@@ -13,6 +13,24 @@ This color scheme has the ability to allow for custom styling conventions. The d
 
 It also includes a selection of custom types that are used numerous in projects (i.e. `uint`, `u32`, `s64`, `float32`, `usize`, etc.) and custom keywords (i.e. `bit_cast`, `internal`, `global`, `local_persist`).
 
+## Installation
+
+### Easy
+
+[Install via Package Control](https://packagecontrol.io/)
+
+### Hard
+
+At a git-enabled command prompt, cd to Sublime Text 3 packages directory:
+OS X: ~/Library/Application Support/Sublime Text 3/Packages/User
+Windows: %APPDATA%\Sublime Text 3\Packages\User
+Linux: ~/.config/sublime-text-3/Packages/User
+Install by cloning the repository to your Sublime Text 3 Packages directory:
+
+git clone git://github.com/gingerBill/sublime-cpp11.git
+
+Restart Sublime Text afterwards, switch to C++11 as highlighting profile and try it out with one of the commands above.
+
 ## How to customize
 
 You can edit the packages within Sublime using [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer). `JSON-tmLanguage` files can be converted to their xml equivalent `tmLanguage` using [AAAPackageDev](https://packagecontrol.io/packages/AAAPackageDev) and converted using `z:AAAPackageDev: Convert (YAML, JSON, PList) to...`.
