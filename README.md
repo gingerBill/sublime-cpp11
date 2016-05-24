@@ -11,7 +11,7 @@ This color scheme has the ability to allow for custom styling conventions. The d
 * `Types_Are_Like_This` or `TypesAreLikeThis`
 * `CONSTANTS_ARE_LIKE_THIS`
 
-It also includes a selection of custom types that are used numerous in projects (i.e. `uint`, `u32`, `s64`, `float32`, `usize`, etc.) and custom keywords (i.e. `bit_cast`, `internal`, `global`, `local_persist`).
+It also includes a selection of custom types that are used numerous in projects (i.e. `uint`, `u32`, `i64`, `f32`, `usize`, etc.) and custom keywords (i.e. `gb_internal`, `gb_global`, `gb_local_persist`) for my personal use.
 
 ## Installation
 
@@ -33,9 +33,9 @@ Restart Sublime Text afterwards, switch to C++11 as highlighting profile and try
 
 ## How to customize
 
-You can edit the packages within Sublime using [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer). `JSON-tmLanguage` files can be converted to their xml equivalent `tmLanguage` using [AAAPackageDev](https://packagecontrol.io/packages/AAAPackageDev) and converted using `z:AAAPackageDev: Convert (YAML, JSON, PList) to...`.
+You can edit the packages within Sublime using [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer).
 
-To modify the custom styling, open and edit `C++11.JSON-tmLanguage`. The custom styling is marked at the beginning of the `patterns`.
+To modify the custom styling, open and edit `C++11.sublime-syntax`.
 
 ## Why does this exist?
 
